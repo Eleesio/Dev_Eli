@@ -2,6 +2,12 @@
 
     "use strict";
 
+    // Preloader js    
+    $(window).on('load', function() {
+        $('.preloader').fadeOut(3000);
+    });
+
+
     $(window).stellar({
         responsive: true,
         parallaxBackgrounds: true,
