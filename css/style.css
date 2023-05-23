@@ -11365,3 +11365,13 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
 }
+
+.preloader1 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gridlite';
+    color: #FCA311;
+    font-size: 18px;
+}
