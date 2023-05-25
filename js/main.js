@@ -1,13 +1,9 @@
 (function($) {
-
     "use strict";
-
     // Preloader js    
     $(window).on('load', function() {
         $('.preloader').fadeOut(3000);
     });
-
-
     $(window).stellar({
         responsive: true,
         parallaxBackgrounds: true,
@@ -16,18 +12,13 @@
         hideDistantElements: false,
         scrollProperty: 'scroll'
     });
-
-
     var fullHeight = function() {
-
         $('.js-fullheight').css('height', $(window).height());
         $(window).resize(function() {
             $('.js-fullheight').css('height', $(window).height());
         });
-
     };
     fullHeight();
-
     // loader
     var loader = function() {
         setTimeout(function() {
@@ -37,17 +28,12 @@
         }, 1);
     };
     loader();
-
     // Scrollax
     $.Scrollax();
-
-
     var burgerMenu = function() {
-
         $('.js-dev-nav-toggle').on('click', function(event) {
             event.preventDefault();
             var $this = $(this);
-
             if ($('body').hasClass('offcanvas')) {
                 $this.removeClass('active');
                 $('body').removeClass('offcanvas');
@@ -58,36 +44,25 @@
         });
     };
     burgerMenu();
-
     // Click outside of offcanvass
     var mobileMenuOutsideClick = function() {
-
         $(document).click(function(e) {
             var container = $("#dev-aside, .js-dev-nav-toggle");
             if (!container.is(e.target) && container.has(e.target).length === 0) {
-
                 if ($('body').hasClass('offcanvas')) {
-
                     $('body').removeClass('offcanvas');
                     $('.js-dev-nav-toggle').removeClass('active');
-
                 }
-
             }
         });
-
         $(window).scroll(function() {
             if ($('body').hasClass('offcanvas')) {
-
                 $('body').removeClass('offcanvas');
                 $('.js-dev-nav-toggle').removeClass('active');
-
             }
         });
-
     };
     mobileMenuOutsideClick();
-
     var carousel = function() {
         $('.home-slider').owlCarousel({
             loop: true,
@@ -111,7 +86,6 @@
                 }
             }
         });
-
         $('.author-slider').owlCarousel({
             autoplay: true,
             loop: true,
@@ -133,23 +107,15 @@
                 }
             }
         });
-
     };
     carousel();
-
-
-
     var contentWayPoint = function() {
         var i = 0;
         $('.ftco-animate').waypoint(function(direction) {
-
             if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
-
                 i++;
-
                 $(this.element).addClass('item-animate');
                 setTimeout(function() {
-
                     $('body .ftco-animate.item-animate').each(function(k) {
                         var el = $(this);
                         setTimeout(function() {
@@ -166,21 +132,14 @@
                             el.removeClass('item-animate');
                         }, k * 50, 'easeInOutExpo');
                     });
-
                 }, 100);
-
             }
-
         }, { offset: '95%' });
     };
     contentWayPoint();
-
     var counter = function() {
-
         $('#section-counter').waypoint(function(direction) {
-
             if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
-
                 var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
                 $('.number').each(function() {
                     var $this = $(this),
@@ -191,15 +150,10 @@
                         numberStep: comma_separator_number_step
                     }, 7000);
                 });
-
             }
-
         }, { offset: '95%' });
-
     }
     counter();
-
-
     // magnific popup
     $('.image-popup').magnificPopup({
         type: 'image',
@@ -220,27 +174,42 @@
             duration: 300 // don't foget to change the duration also in CSS
         }
     });
-
     $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
         disableOn: 700,
         type: 'iframe',
         mainClass: 'mfp-fade',
         removalDelay: 160,
         preloader: false,
-
         fixedContentPos: false
     });
-
-
-
-
 })(jQuery);
-
 $(document).ready(function() {
-
     // Fakes the loading setting a timeout
     setTimeout(function() {
         $('body').addClass('loaded');
     }, 3500);
-
 });
+// Função de inicialização do player do YouTube
+function onYouTubeIframeAPIReady() {
+    // Crie um novo player
+    var player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'Su00mfi5QUY',
+        playerVars: {
+            autoplay: 1,
+            loop: 1,
+            controls: 0,
+            showinfo: 0,
+            modestbranding: 1
+        },
+        events: {
+            onReady: onPlayerReady
+        }
+    });
+}
+// Função chamada quando o player estiver pronto
+function onPlayerReady(event) {
+    // Inicie a reprodução
+    event.target.playVideo();
+}

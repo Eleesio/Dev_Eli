@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dev Elí - portfólio(3)</title>
+    <link rel="stylesheet" href="css/style7.css">
+    <link rel="stylesheet" href="js/6.js">
+</head>
+
+<body>
+    <svg viewBox="0 0 100 100">
+    <filter id="blur">
+     <feMorphology in="SourceGraphic" operator="dilate" radius="0.3">
+     </feMorphology>    
+    </filter>
+     <filter id="turbulence">
+     <feComponentTransfer>
+            <feFuncR type="discrete" tableValues="0 0.5 0 1"/>
+            <feFuncG type="discrete" tableValues="0 0.5 0 1"/>
+            <feFuncB type="discrete" tableValues="0 0.5 0 1"/>
+            <feFuncA type="discrete" tableValues="0 0.5 0 1"/>
+        </feComponentTransfer>
+   </filter>
+    <filter id="convolve">
+        <feComponentTransfer>
+            <feFuncR type="table" tableValues="0 0.5 0 1" />
+            <feFuncG type="table" tableValues="0 0.5 0 1" />
+            <feFuncB type="table" tableValues="0 0.5 0 1" />
+            <feFuncA type="table" tableValues="0 0.5 0 1" />
+        </feComponentTransfer>
+     </filter>
+    <mask id="mask1">
+      <line x1="0" y1="0%" x2="100" y2="200" stroke="white" stroke-width="15">
+          <animate attributeName="x1" values="7.5%;92.5%;7.5%" dur="10s" begin="-2s" repeatCount="indefinite" />
+          <animate attributeName="x2" values="7.5%;92.5%;7.5%" dur="10s" begin="-2s" repeatCount="indefinite" />
+      </line>
+    </mask>
+    <mask id="mask2">
+      <line x1="0" y1="0" x2="200" y2="100" stroke="white" stroke-width="15">
+          <animate attributeName="y1" values="7.5%;92.5%;7.5%" dur="10s" begin="-4s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="7.5%;92.5%;7.5%" dur="10s" begin="-4s" repeatCount="indefinite" />
+      </line>
+    </mask>
+    <mask id="mask3">
+      <line x1="0" y1="0" x2="200" y2="100" stroke="white" stroke-width="15">
+          <animate attributeName="y1" values="7.5%;92.5%;7.5%" dur="10s" begin="-6s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="7.5%;92.5%;7.5%" dur="10s" begin="-6s" repeatCount="indefinite" />
+      </line>
+    </mask>
+    <mask id="mask4">
+      <line x1="0" y1="0" x2="100" y2="200" stroke="white" stroke-width="15">
+          <animate attributeName="x1" values="7.5%;92.5%;7.5%" dur="10s" begin="-8s" repeatCount="indefinite" />
+          <animate attributeName="x2" values="7.5%;92.5%;7.5%" dur="10s" begin="-8s" repeatCount="indefinite" />
+      </line>
+    </mask> 
+    <image width="100" id="pearlGirl" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" />
+    <image x="10" y="-2" opacity="1" height="120" id="gollumPearlGirl" href="https://assets.codepen.io/2045658/gollumearring.jpg" mask="url(#mask2)" />
+  <!--  <use width="100" filter="url(#turbulence)" mask="url(#mask2)" href="#pearlGirl" />
+    <use width="100" filter="url(#blur)" mask="url(#mask1)" href="#pearlGirl"/>
+    <use width="100" filter="invert(100%)" mask="url(#mask4)" href="#pearlGirl"/>
+    <use width="100" filter="url(#convolve)" mask="url(#mask3)" href="#pearlGirl"/> -->
+  
+  </svg>
+</body>
+
+</html>
